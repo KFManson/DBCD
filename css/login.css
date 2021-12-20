@@ -1,0 +1,80 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+body {
+    background-color: #afe2e5;
+}
+
+
+.info {
+    position: relative;
+    width: 600px;
+    height: 800px;
+    background-color: #fff;
+    float: right;
+    margin-right: 100px;
+}
+
+#login {
+    width: 1400px;
+    height: 800px;
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -700px;
+    margin-top: -400px;
+    border-radius: 50px;
+    box-shadow: 0 0 10px rgb(195, 163, 163);
+    background-image: url(../img/QQ截图20211124184117.png);
+    background-repeat: no-repeat;
+    background-size: 1000px;
+}
+
+
+.LoginBox {
+    margin-top: 20px
+}
+
+.LoginBox>input {
+    color: #0f0606;
+    width: 15rem;
+    font-size: 18px;
+    border-bottom: 2px solid #0c0a0a;
+    padding: 0.5rem 1rem;
+    margin-bottom: 1.5rem;
+    background: transparent;
+    border-radius: 20px;
+}
+
+.login_info {
+    position: absolute;
+    top: 50%;
+    left: 200px;
+    margin-top: -220px;
+}
+
+.login_info>p {
+    margin-top: 20px;
+    width: 272px;
+    text-align: center;
+}
+
+.login_info>h1 {
+    margin-top: 20px;
+    width: 272px;
+    text-align: center;
+}
+
+.LoginBox>button{
+    width: 272px;
+    height: 50px;
+    color: #fff;
+    font-size: 20px;
+    margin-top: 10px;
+    background-color: #2b8663;
+    border-radius: 40px;
+}
