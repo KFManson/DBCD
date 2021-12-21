@@ -11,7 +11,7 @@
     box-shadow: 0 0 10px rgb(195, 163, 163);
 }
 
-input{
+input {
     color: #0f0606;
     width: 15rem;
     font-size: 18px;
@@ -19,17 +19,17 @@ input{
     padding: 0.5rem 1rem;
     margin-bottom: 1.5rem;
     background: transparent;
-    border-radius: 20px; 
+    border-radius: 20px;
 }
 
-.imfo{
+.imfo {
     width: 400px;
     position: relative;
     top: 150px;
     left: 575px;
 }
 
-.sub{
+.sub {
     width: 272px;
     height: 50px;
     color: #fff;
@@ -37,4 +37,8 @@ input{
     margin-top: 10px;
     background-color: #2b8663;
     border-radius: 40px;
+}
+
+.sub:hover {
+    cursor: pointer;
 }

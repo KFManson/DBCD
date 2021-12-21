@@ -32,4 +32,19 @@
         <property name="jdbcTemplate" ref="jdbcTemplate"/>
     </bean>
 
+    <!--配置EnterpDao-->
+    <bean id="enterpDao" class="com.dbcd.dao.impl.EnterpDaoImpl">
+        <property name="jdbcTemplate" ref="jdbcTemplate"/>
+    </bean>
+    <!--配置EnterpService-->
+    <bean id="enterpService" class="com.dbcd.service.impl.EnterpServiceImpl">
+        <property name="enterpDao" ref="enterpDao"/>
+    </bean>
+
+
+    <!--配置RecruitDao-->
+    <bean id="RecruitDao" class="com.dbcd.dao.impl.RecruitDaoImpl">
+        <property name="jdbcTemplate" ref="jdbcTemplate"/>
+    </bean>
+
 </beans>

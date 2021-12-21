@@ -78,3 +78,7 @@ body {
     background-color: #2b8663;
     border-radius: 40px;
 }
+
+.LoginBox>button:hover{
+    cursor: pointer; 
+}
