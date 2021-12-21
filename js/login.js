@@ -6,7 +6,6 @@ var vm = new Vue({
     },
     methods: {
         login: function () {
-            console.log(1);
             var username = this.username;
             var password = this.password;
             axios.get('http://localhost:8080/loginAPI?id='+username+'&password='+password).then(response => {
