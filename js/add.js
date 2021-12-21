@@ -31,7 +31,7 @@ var vm = new Vue({
                 "studentAddress": studentAddress,
             }
 
-            axios.post("http://localhost:8080/Stu/addStuAPI", data).
+            axios.post("http://dontj.top/dbcd/Stu/addStuAPI", data).
                 then((result) => {
                     console.log(result);
                 }).catch((err) => {
