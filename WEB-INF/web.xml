@@ -35,10 +35,13 @@
   </servlet-mapping>
 
   <!--配置html页面访问-->
-  <servlet-mapping>
+  <!--<servlet-mapping>
     <servlet-name>default</servlet-name>
     <url-pattern>*.html</url-pattern>
-  </servlet-mapping>
+    <url-pattern>*.css</url-pattern>
+    <url-pattern>*.js</url-pattern>
+    <url-pattern>*.png</url-pattern>
+  </servlet-mapping>-->
 
   <!--配置参数-->
   <context-param>

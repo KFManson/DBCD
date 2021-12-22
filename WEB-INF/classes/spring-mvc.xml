@@ -12,6 +12,11 @@
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
 
+    <mvc:resources mapping="/Stu/js/**" location="/js/"/>
+    <mvc:resources mapping="/Stu/css/**" location="/css/"/>
+    <mvc:resources mapping="/Stu/img/**" location="/img/"/>
+
+
     <!--配置mvc驱动-->
     <mvc:annotation-driven/>
 
