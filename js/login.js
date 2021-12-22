@@ -8,8 +8,8 @@ var vm = new Vue({
         login: function () {
             var username = this.username;
             var password = this.password;
-            axios.get('http://localhost:8080/loginAPI?id='+username+'&password='+password).then(response => {
-                console.log(response.data)
+            axios.get('http://localhost:8080/Stu/test?id=123').then(response => {
+                console.log(response);
             })
         }
     },
