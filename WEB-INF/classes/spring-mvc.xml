@@ -15,6 +15,13 @@
     <mvc:resources mapping="/Stu/css/**" location="/css/"/>
     <mvc:resources mapping="/Stu/img/**" location="/img/"/>
 
+    <!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+        <property name="messageConverters">
+            <list>
+                <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
+            </list>
+        </property>
+    </bean>-->
 
     <!--配置mvc驱动-->
     <mvc:annotation-driven/>
