@@ -1,3 +1,13 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+body {
+    background-color: rgb(242,244,247);
+}
+
 #add {
     width: 1400px;
     height: 800px;
@@ -5,13 +15,14 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-left: -700px;
+    margin-left: -720px;
     margin-top: -400px;
     border-radius: 50px;
-    box-shadow: 0 0 10px rgb(195, 163, 163);
+    box-shadow: 0 0 10px rgb(204, 196, 196);
+
 }
 
-input {
+.imfo > input {
     color: #0f0606;
     width: 15rem;
     font-size: 18px;
@@ -42,3 +53,4 @@ input {
 .sub:hover {
     cursor: pointer;
 }
+

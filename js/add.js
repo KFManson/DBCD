@@ -21,6 +21,7 @@ var vm = new Vue({
             this.studentPhone = "";
             this.studentAddress = "";
         },
+        
         add: function () {
             let studentId = this.studentId;
             let studentBrith = this.studentBrith;

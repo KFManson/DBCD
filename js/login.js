@@ -5,11 +5,14 @@ var vm = new Vue({
         password: '',
     },
     methods: {
-        login: function () {
+        login: function (id) {
             var username = this.username;
             var password = this.password;
-            axios.get('http://localhost:8080/Stu/test?id=123').then(response => {
+          
+            axios.get('http://localhost:8080/Stu/test').then(response => {
                 console.log(response);
+                 window.location.replace("http://localhost:8080/Stu/test"); 
+
             })
         }
     },

@@ -5,7 +5,8 @@
 }
 
 body {
-    background-color: #afe2e5;
+    background-color: rgb(242, 244, 247);
+
 }
 
 
@@ -28,7 +29,8 @@ body {
     margin-left: -700px;
     margin-top: -400px;
     border-radius: 50px;
-    box-shadow: 0 0 10px rgb(195, 163, 163);
+    box-shadow: 0 0 10px rgb(204, 196, 196);
+
     background-image: url(../img/QQ截图20211124184117.png);
     background-repeat: no-repeat;
     background-size: 1000px;
@@ -69,7 +71,7 @@ body {
     text-align: center;
 }
 
-.LoginBox>button{
+.LoginBox>button {
     width: 272px;
     height: 50px;
     color: #fff;
@@ -79,6 +81,6 @@ body {
     border-radius: 40px;
 }
 
-.LoginBox>button:hover{
-    cursor: pointer; 
+.LoginBox>button:hover {
+    cursor: pointer;
 }
