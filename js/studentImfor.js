@@ -83,7 +83,7 @@ var vm = new Vue({
             } else if (!(/\d{11}/.test(studentPhone))) {
                 alert("电话号码错误");
             } else {
-                axios.post("http://localhost:8080/Stu/updateStuAPI", data).
+                axios.post("http://dontj.top/dbcd/Stu/updateStuAPI", data).
                     then((result) => {
                         console.log(result);
                         if (result.data) {
