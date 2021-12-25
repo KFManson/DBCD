@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>showlist</title>
+</head>
+
+<body>
+    <div id="stuImfor">
+        <table border="1">
+            <tr>
+                <td>学号</td>
+                <td>姓名</td>
+                <td>性别</td>
+                <td>出生日期</td>
+                <td>系别</td>
+                <td>地址</td>
+                <td>电话</td>
+            </tr>
+            <tr v-for="item in stuImfor">
+                <td>{{item.studentId}}</td>
+                <td>{{item.studentName}}</td>
+                <td>{{item.studentGender}}</td>
+                <td>{{item.studentBrith}}</td>
+                <td>{{item.studentSdept}}</td>
+                <td>{{item.studentAddress}}</td>
+                <td>{{item.studentPhone}}</td>
+            </tr>
+        </table>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: "#stuImfor",
+            data: {
+                stuImfor: [
+                ]
+            },
+            beforeCreate: function () {
+                axios.get("http://dontj.top/dbcd/Stu/StuListAllApi").
+                    then(respons => {
+                        for (var i = 0; i < respons.data.length; i++) {
+                            console.log(respons.data);
+                           this.$set(this.stuImfor,i,respons.data[i]);
+                        }
+                    })
+            }
+        })
+    </script>
+</body>
+
+</html>
