@@ -13,9 +13,9 @@
     <context:component-scan base-package="com.dbcd.dao"/>
     <context:component-scan base-package="com.dbcd.utils"/>
 
-    <mvc:resources mapping="/Stu/js/**" location="/static/js/"/>
-    <mvc:resources mapping="/Stu/css/**" location="/static/css/"/>
-    <mvc:resources mapping="/Stu/img/**" location="/static/img/"/>
+    <mvc:resources mapping="/Stu/js/**" location="/js/"/>
+    <mvc:resources mapping="/Stu/css/**" location="/css/"/>
+    <mvc:resources mapping="/Stu/img/**" location="/img/"/>
 
     <!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
         <property name="messageConverters">
