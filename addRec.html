@@ -15,15 +15,14 @@
         <img src="img/toplogo.png" alt="">
 
     </div>
-    <div id="add">
+    <div id="addRec">
         <div class="imfo">
-            <input type="text" v-model='studentId' placeholder="学号">
-            <input type="text" v-model='studentName' placeholder="姓名">
-            <input type="text" v-model='studentGender' placeholder="性别">
-            <input type="text" v-model='studentBrith' placeholder="出生日期">
-            <input type="text" v-model='studentSdept' placeholder="系别">
-            <input type="text" v-model='studentAddress' placeholder="地址">
-            <input type="text" v-model='studentPhone' placeholder="电话">
+            <input type="text" v-model='enterId' placeholder="企业ID">
+            <input type="text" v-model='studentId' placeholder="企业名称">
+            <input type="text" v-model='studentName' placeholder="招聘ID">
+            <input type="text" v-model='endTime' placeholder="截止时间">
+            <input type="text" v-model='title' placeholder="标题">
+            <input type="text" v-model='content' placeholder="内容">
             <button class="sub" @click='add()'>添加</button>
         </div>
     </div>
@@ -35,20 +34,20 @@
             </dl>
             <div class="nav-content">
                 <ul>
-                    <li @click = "goImfor()">学生信息</li>
-                    <li @click = "goRecruit()">招聘信息</li>
-                    <li class="current">添加学生信息</li>
-                    <li @click='goAddrecruit()'>添加招聘信息</li>
+                    <li @click="goImfor()">学生信息</li>
+                    <li @click="goRecruit()">招聘信息</li>
+                    <li @click="goAdd()">添加学生信息</li>
+                    <li class="current">添加招聘信息</li>
                 </ul>
             </div>
-            
+
         </div>
-        
+
     </div>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-    <script src="js/add.js"></script>
     <script src="js/nav.js"></script>
+    <script src="js/addRec.js"></script>
 </body>
 
 </html>

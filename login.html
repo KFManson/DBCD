@@ -19,8 +19,8 @@
                 <div class="LoginBox">
                     <input type="text" v-model='username' placeholder="username">
                     <input type="password" v-model='password' placeholder="password">
-                    <button @click="login()">student login</button>
-                    <button>teacher login</button>
+                    <button @click="login('S')">student login</button>
+                    <button @click="login('A')">teacher login</button>
                 </div>
             </div>
         </div>
