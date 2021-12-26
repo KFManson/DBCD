@@ -89,7 +89,12 @@ var vm = new Vue({
                         console.log(result);
                         if (result.data) {
                             alert('修改成功');
-                            this.reset();
+                            axios.get("http://dontj.top/dbcd/Stu/StuListAllApi").
+                                then(respons => {
+                                    for (var i = 0; i < respons.data.length; i++) {
+                                        this.$set(this.stuImfor, i, respons.data[i]);
+                                    }
+                                })
                         } else {
                             alert('修改失败')
                         }
@@ -104,8 +109,6 @@ var vm = new Vue({
         }
     },
     beforeCreate: function () {
-        console.log(window.location.href);
-
         axios.get("http://dontj.top/dbcd/Stu/StuListAllApi").
             then(respons => {
                 for (var i = 0; i < respons.data.length; i++) {

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>stuimfor</title>
+    <title>recruit</title>
     <link rel="stylesheet" type="text/css" href="css/stuImfor.css">
     <link rel="stylesheet" type="text/css" href="css/nav.css">
     <link rel="stylesheet" type="text/css" href="css/add.css">
@@ -15,11 +15,11 @@
     <div class="top">
         <img src="img/toplogo.png" alt="">
     </div>
-    <div id="rec">
+    <div id="stu">
         <div id="cover">
             <form method="get" action="">
                 <div class="tb">
-                    <div class="td"><input type="text" placeholder="学号或者名字" required v-model="searchIm"></div>
+                    <div class="td"><input type="text" placeholder="企业ID" required v-model="searchIm"></div>
                     <div class="td" id="s-cover">
                         <button @click.prevent="search()">
                             <div id="s-circle"></div>
@@ -33,6 +33,7 @@
             <table>
                 <tr>
                     <td>企业ID</td>
+                    <td>企业名称</td>
                     <td>招聘ID</td>
                     <td>截止时间</td>
                     <td>标题</td>
@@ -40,21 +41,30 @@
                     <td></td>
                     <td></td>
                 </tr>
+                <tr v-for="(item,index) in recImfor">
+                    <td>{{item.enterpId}}</td>
+                    <td>{{item.enterpName}}</td>
+                    <td>{{item.recruitId}}</td>
+                    <td>{{item.endTime}}</td>
+                    <td>{{item.title}}</td>
+                    <td>{{item.content}}</td>
+                    <td><button @click="del(index)">删除</button></td>
+                    <td><button @click="goUpdate(index)">修改</button></td>
+                </tr>
             </table>
         </div>
-        <!-- <div id="add" v-if="flag">
+        <div id="add" v-if="flag" style="margin-left: -701px;margin-top: -65px;">
             <button class="close" @click='close'>x</button>
             <div class="imfo">
-                <input class = 'id' type="text" v-model='studentId' placeholder="学号" disabled="disabled">
-                <input type="text" v-model='studentName' placeholder="姓名">
-                <input type="text" v-model='studentGender' placeholder="性别">
-                <input type="text" v-model='studentBrith' placeholder="出生日期">
-                <input type="text" v-model='studentSdept' placeholder="系别">
-                <input type="text" v-model='studentAddress' placeholder="地址">
-                <input type="text" v-model='studentPhone' placeholder="电话">
+                <input class='id' type="text" v-model='enterpId' placeholder="企业id" disabled="disabled">
+                <input class='id' type="text" v-model='enterpName' placeholder="企业名称" disabled="disabled">
+                <input class='id' type="text" v-model='recruitId' placeholder="招聘id" disabled="disabled">
+                <input type="text" v-model='endTime' placeholder="截止时间">
+                <input type="text" v-model='title' placeholder="标题">
+                <input type="text" v-model='content' placeholder="内容">
                 <button class="sub" @click='update()'>修改</button>
             </div>
-        </div> -->
+        </div>
     </div>
 
     <div id="nav">
@@ -67,10 +77,9 @@
                     <li @click="goImfor()">学生信息</li>
                     <li class="current">招聘信息</li>
                     <li @click="goAdd()">添加学生信息</li>
-                    <li @click="goAddrecruit()">添加招聘信息</li>
+                    <li @click='goAddrecruit()'>添加招聘信息</li>
                 </ul>
             </div>
-
         </div>
 
     </div>
