@@ -10,8 +10,8 @@ var vm = new Vue({
             var password = this.password;
             axios.get('http://dontj.top/dbcd/loginAPI?Id=' + username + "&Password=" + password + '&Auth=' + id).
                 then(respons => {
-                    console.log(respons);
                     if (respons.data.state) {
+                        window.location.href = 'studentImfor.html';
                     }
                 })
             // window.location.href="studentImfor.html?username="+username;
