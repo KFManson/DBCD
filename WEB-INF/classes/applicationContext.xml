@@ -25,6 +25,7 @@
     <!--配置StuService-->
     <bean id="stuService" class="com.dbcd.service.impl.StuServiceImpl">
         <property name="stuDao" ref="stuDao"/>
+        <property name="loginTableDao" ref="loginTableDao"/>
     </bean>
 
     <!--配置StuDao-->
@@ -42,13 +43,18 @@
     </bean>
 
 
-    <!--配置RecruitDao-->
+    <!--配置Recruit-->
     <bean id="RecruitDao" class="com.dbcd.dao.impl.RecruitDaoImpl">
         <property name="jdbcTemplate" ref="jdbcTemplate"/>
     </bean>
 
     <bean id="RecruitService" class="com.dbcd.service.impl.RecruitServiceImpl">
         <property name="recruitDao" ref="RecruitDao"/>
+    </bean>
+
+    <!--配置loginTable-->
+    <bean id="loginTableDao" class="com.dbcd.dao.impl.LoginTableDaoImpl">
+        <property name="jdbcTemplate" ref="jdbcTemplate"/>
     </bean>
 
 </beans>
