@@ -1,120 +1,62 @@
 var vm = new Vue({
-    el: "#stu",
-    data: {
-        entImfor: [
-        ],
-        searchIm: "",
-        studentId: "",
-        studentBrith: "",
-        studentSdept: "",
-        studentName: "",
-        studentGender: "",
-        studentPhone: "",
-        studentAddress: "",
-        flag: false,
+    el: "#add",
+    data() {
+        return {
+            EnterpId: "",
+            EnterpName: "",
+            EnterpAddress: "",
+            EnterpIndustry: "",
+            EnterpIntroduction: "",
+        }
     },
     methods: {
-        // del: function (index) {
-        //     let flag = confirm('确认删除？');
-        //     if (flag) {
-        //         axios.get("http://dontj.top/dbcd/Stu/delStuAPI?string=" + this.entImfor[index].studentId).
-        //             then(respons => {
-        //                 console.log(respons);
-        //             });
-        //         this.entImfor.splice(index, 1);
-        //     }
-
-        // },
-        search: function () {
-            var searchIm = this.searchIm;
-            axios.get("http://dontj.top/dbcd/Enterp/QueryEnterpAPI?string=" + searchIm).
-                then(respons => {
-                    this.entImfor = undefined;
-                    this.entImfor = new Array();
-                    for (var i = 0; i < respons.data.length; i++) {
-                        this.$set(this.entImfor, i, respons.data[i]);
-                    }
-                    console.log(this.entImfor);
-                })
+        reset: function () {
+            this.enterpId = "";
+            this.enterpName = "";
+            this.enterpAddress = "";
+            this.enterpIndustry = "";
+            this.enterpIntroduction = ""
         },
-        // goUpdate: function (index) {
-        //     var searchIm = this.entImfor[index].studentId;
-        //     axios.get("http://dontj.top/dbcd/Stu/QueryStuAPI?string=" + searchIm).
-        //         then(respons => {
-        //             let data = respons.data[0];
-        //             this.studentId = data.studentId;
-        //             console.log(this.studentId);
-        //             this.studentBrith = data.studentBrith;
-        //             this.studentSdept = data.studentSdept;
-        //             this.studentName = data.studentName;
-        //             this.studentGender = data.studentGender;
-        //             this.studentPhone = data.studentPhone;
-        //             this.studentAddress = data.studentAddress;
-        //         })
-        //     this.flag = true;
-        // },
-        // update: function () {
-        //     let studentId = this.studentId;
-        //     let studentBrith = this.studentBrith;
-        //     let studentSdept = this.studentSdept;
-        //     let studentName = this.studentName;
-        //     let studentGender = this.studentGender;
-        //     let studentPhone = this.studentPhone;
-        //     let studentAddress = this.studentAddress;
 
-        //     let data = {
-        //         "studentId": studentId,
-        //         "studentBrith": studentBrith,
-        //         "studentSdept": studentSdept,
-        //         "studentName": studentName,
-        //         "studentGender": studentGender,
-        //         "studentPhone": studentPhone,
-        //         "studentAddress": studentAddress,
-        //     }
+        addEnterp: function () {
+            let EnterpId = this.EnterpId;
+            let EnterpName = this.EnterpName;
+            let EnterpAddress = this.EnterpAddress;
+            let EnterpIndustry = this.EnterpIndustry;
+            let EnterpIntroduction = this.EnterpIntroduction;
 
-        //     if (!(/\d{12}/.test(studentId))) {
-        //         alert("学号错误");
-        //     } else if (!(/^[\u4e00-\u9fa5]{0,}$/).test(studentName)) {
-        //         alert("姓名错误");
-        //     } else if (!(/^男|女$/.test(studentGender))) {
-        //         alert("性别错误")
-        //     } else if (!(/\d{8}/.test(studentBrith))) {
-        //         alert("出生日期错误");
-        //     } else if (!(/\d{11}/.test(studentPhone))) {
-        //         alert("电话号码错误");
-        //     } else {
-        //         axios.post("http://dontj.top/dbcd/Stu/updateStuAPI", data).
-        //             then((result) => {
-        //                 console.log(result);
-        //                 if (result.data) {
-        //                     alert('修改成功');
-        //                     axios.get("http://dontj.top/dbcd/Stu/StuListAllApi").
-        //                         then(respons => {
-        //                             for (var i = 0; i < respons.data.length; i++) {
-        //                                 this.$set(this.entImfor, i, respons.data[i]);
-        //                             }
-        //                         })
-        //                 } else {
-        //                     alert('修改失败')
-        //                 }
-        //             }).catch((err) => {
-        //                 console.log(err);
-        //             });
-        //     }
-
-        // },
-        // close: function () {
-        //     this.flag = false;
-        // }
+            let data = {
+                "enterpId": EnterpId,
+                "enterpName": EnterpName,
+                "enterpAddress": EnterpAddress,
+                "enterpIndustry": EnterpIndustry,
+                "enterpIntroduction": EnterpIntroduction,
+            }
+            
+            if (!(/\d{8}/.test(EnterpId))) {
+                alert("企业ID应为8位");
+            } else if (!(/\S/.test(EnterpName))) {
+                alert("企业名称不能为空");
+            } else if (!(/\S/.test(EnterpAddress))) {
+                alert("企业地址不能为空");
+            } else if(!(/\S/.test(EnterpIndustry))){
+                alert("企业领域不能为空");
+            } else if(!(/\S/.test(EnterpIntroduction))){
+                alert("企业介绍不能为空");
+            }else {
+                axios.post("http://dontj.top/dbcd/Enterp/addEnterpAPI", data).
+                    then((result) => {
+                        console.log(result);
+                        if (result.data) {
+                            alert('添加成功');
+                            this.reset();
+                        } else {
+                            alert('添加失败')
+                        }
+                    }).catch((err) => {
+                        console.log(err);
+                    });
+            }
+        }
     },
-    beforeCreate: function () {
-        axios.get("http://dontj.top/dbcd/Enterp/EnterpListAllApi").
-            then(respons => {
-                console.log(respons);
-                for (var i = 0; i < respons.data.length; i++) {
-                    this.$set(this.entImfor, i, respons.data[i]);
-                    console.log(this.entImfor);
-                }
-            })
-    }
 })
