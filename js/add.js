@@ -21,7 +21,7 @@ var vm = new Vue({
             this.studentPhone = "";
             this.studentAddress = "";
         },
-        
+
         add: function () {
             let studentId = this.studentId;
             let studentBrith = this.studentBrith;
@@ -49,6 +49,10 @@ var vm = new Vue({
                 alert("性别错误")
             } else if (!(/\d{8}/.test(studentBrith))) {
                 alert("出生日期错误");
+            } else if (!(/\S/.test(studentSdept))) {
+                alert("系别不能为空");
+            } else if (!(/\S/.test(studentAddress))) {
+                alert("地址不能为空");
             } else if (!(/\d{11}/.test(studentPhone))) {
                 alert("电话号码错误");
             } else {

@@ -13,6 +13,10 @@ var vm = new Vue({
         goAddrecruit:function () {
             console.log(1);
             window.location.href=("addRec.html"); 
+        },
+        goAddenterp:function () {
+            console.log(1);
+            window.location.href=("addEnterp.html"); 
         }
     },
 })

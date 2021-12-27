@@ -19,3 +19,4 @@ var vm = new Vue({
         }
     },
 })
+axios.defaults.withCredentials = true;
