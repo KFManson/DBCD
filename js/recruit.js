@@ -4,6 +4,7 @@ var vm = new Vue({
         recImfor: [
         ],
         flag: false,
+        searchIm:""
     },
     methods: {
         del: function (index) {
@@ -11,7 +12,6 @@ var vm = new Vue({
             if (flag) {
                 axios.get("http://dontj.top/dbcd/Enterp/delRecruitAPI?string=" + this.recImfor[index].recruitId).
                     then(respons => {
-                        console.log(respons);
                     });
                 this.recImfor.splice(index, 1);
             }
@@ -23,24 +23,21 @@ var vm = new Vue({
                 then(respons => {
                     this.recImfor = undefined;
                     this.recImfor = new Array();
-                    console.log(respons);
                     for (var i = 0; i < respons.data.length; i++) {
                         this.$set(this.recImfor, i, respons.data[i]);
                     }
-                    console.log(this.recImfor);
                 })
 
         },
         goUpdate: function (index) {
             let data = this.recImfor[index];
-            console.log(data);
             this.enterpId = data.enterpId;
             this.recruitId = data.recruitId;
             this.endTime = data.endTime;
             this.title = data.title;
             this.content = data.content;
             this.enterpName = data.enterpName;
-
+            this.contact = data.contact;
             this.flag = true;
         },
         update: function () {
@@ -50,6 +47,7 @@ var vm = new Vue({
             let endTime = this.endTime;
             let title = this.title;
             let content = this.content;
+            let contact = this.contact;
 
             let data = {
                 "enterpId": enterpId,
@@ -58,12 +56,12 @@ var vm = new Vue({
                 "endTime": endTime,
                 "title": title,
                 "content": content,
+                "contact":contact,
             }
 
 
             axios.post("http://dontj.top/dbcd/Enterp/updateRecruitAPI", data).
                 then((result) => {
-                    console.log(result);
                     if (result.data) {
                         alert('修改成功');
                         axios.get("http://dontj.top/dbcd/Enterp/QueryAllRecruit").
@@ -76,7 +74,6 @@ var vm = new Vue({
                         alert('修改失败')
                     }
                 }).catch((err) => {
-                    console.log(err);
                 });
 
 

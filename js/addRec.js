@@ -7,6 +7,7 @@ var vm = new Vue({
             endTime: "",
             title: "",
             content: "",
+            contact: "",
         }
     },
     methods: {
@@ -15,7 +16,8 @@ var vm = new Vue({
             this.enterpId = "";
             this.endTime = "";
             this.title = "";
-            this.content = ""
+            this.content = "";
+            this.contact = "";
         },
 
         add: function () {
@@ -24,6 +26,7 @@ var vm = new Vue({
             let endTime = this.endTime;
             let title = this.title;
             let content = this.content;
+            let contact = this.contact;
 
             let data = {
                 "recruitId": recruitId,
@@ -31,6 +34,7 @@ var vm = new Vue({
                 "endTime": endTime,
                 "title": title,
                 "content": content,
+                "contact":contact,
             }
 
             console.log(data);
@@ -44,6 +48,8 @@ var vm = new Vue({
                 alert("标题不能为空");
             } else if (!(/\S/.test(content))) {
                 alert("内容不能为空");
+            }  else if (!(/\d{11}/.test(contact))){
+                alert("联系方式为11位");
             } else {
                 axios.post("http://dontj.top/dbcd/Enterp/AddOneRecruit", data).
                     then((result) => {
