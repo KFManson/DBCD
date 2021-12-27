@@ -1,4 +1,4 @@
-.top {
+#top {
     width: 100%;
     height: 100px;
     background: rgb(255, 255, 255);
@@ -11,7 +11,7 @@
     box-sizing: border-box;
 }
 
-.top>img {
+#top>img {
     margin-top: 15px;
     margin-left: 980px;
 }
@@ -72,4 +72,38 @@
 .current {
     color: #3B90FF;
     background: #F0F6FF;
+}
+
+.ddbox {
+    position: absolute;
+    top: 20px;
+    right: 50px;
+}
+
+.ddbox:hover {
+    cursor: pointer;
+}
+
+.option{
+    position: relative;
+    left: 2005px;
+    top: -20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgb(204, 196, 196);
+}
+.exit{
+    height: 42px;
+    width: 300px;
+}
+.exitl{
+    margin-left: 0px;
+    font-size: 20px;
+    position: relative;
+    left: 50px;
+    top: -37px;
+}
+
+.exit:hover{
+    cursor: pointer;
 }

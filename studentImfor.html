@@ -12,8 +12,15 @@
 </head>
 
 <body>
-    <div class="top">
+    <div id="top">
         <img src="img/toplogo.png" alt="">
+        <img src="img/下拉框.png" alt="" class="ddbox" @click="change(1)">
+        <div class="option" v-show="flag" @mouseleave="change(0)" @click="esc()">
+          <div class="exit">
+              <span><img src="img/exit.png" alt=""></span>
+              <div class="exitl">退出登陆</div>
+          </div>
+        </div>
     </div>
     <div id="stu">
         <div id="cover">

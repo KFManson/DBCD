@@ -4,13 +4,11 @@ var vm = new Vue({
         entImfor: [
         ],
         searchIm: "",
-        studentId: "",
-        studentBrith: "",
-        studentSdept: "",
-        studentName: "",
-        studentGender: "",
-        studentPhone: "",
-        studentAddress: "",
+        enterpId: "",
+        enterpName: "",
+        enterpAddress: "",
+        enterpIndustry: "",
+        enterpIntroduction: "",
         flag: false,
     },
     methods: {
@@ -37,83 +35,82 @@ var vm = new Vue({
                     console.log(this.entImfor);
                 })
         },
-        // goUpdate: function (index) {
-        //     var searchIm = this.entImfor[index].studentId;
-        //     axios.get("http://dontj.top/dbcd/Stu/QueryStuAPI?string=" + searchIm).
-        //         then(respons => {
-        //             let data = respons.data[0];
-        //             this.studentId = data.studentId;
-        //             console.log(this.studentId);
-        //             this.studentBrith = data.studentBrith;
-        //             this.studentSdept = data.studentSdept;
-        //             this.studentName = data.studentName;
-        //             this.studentGender = data.studentGender;
-        //             this.studentPhone = data.studentPhone;
-        //             this.studentAddress = data.studentAddress;
-        //         })
-        //     this.flag = true;
-        // },
-        // update: function () {
-        //     let studentId = this.studentId;
-        //     let studentBrith = this.studentBrith;
-        //     let studentSdept = this.studentSdept;
-        //     let studentName = this.studentName;
-        //     let studentGender = this.studentGender;
-        //     let studentPhone = this.studentPhone;
-        //     let studentAddress = this.studentAddress;
+        goUpdate: function (index) {
+            var searchIm = this.entImfor[index].enterpId;
+            console.log();
+            axios.get("http://dontj.top/dbcd/Enterp/QueryEnterpAPI?string=" + searchIm).
+                then(respons => {
+                    let data = respons.data[0];
+                    console.log(respons);
+                    this.enterpId = data.enterpId;
+                    this.enterpName = data.enterpName;
+                    this.enterpAddress = data.enterpAddress;
+                    this.enterpIndustry = data.enterpIndustry;
+                    this.enterpIntroduction = data.enterpIntroduction;
+                    this.studentPhone = data.studentPhone;
+                    this.studentAddress = data.studentAddress;
+                })
+            this.flag = true;
+        },
+        update: function () {
+            let enterpId = this.enterpId;
+            let enterpName = this.enterpName;
+            let enterpAddress = this.enterpAddress;
+            let enterpIndustry = this.enterpIndustry;
+            let enterpIntroduction = this.enterpIntroduction;
+            let studentPhone = this.studentPhone;
+            let studentAddress = this.studentAddress;
 
-        //     let data = {
-        //         "studentId": studentId,
-        //         "studentBrith": studentBrith,
-        //         "studentSdept": studentSdept,
-        //         "studentName": studentName,
-        //         "studentGender": studentGender,
-        //         "studentPhone": studentPhone,
-        //         "studentAddress": studentAddress,
-        //     }
+            let data = {
+                "enterpId": enterpId,
+                "enterpName": enterpName,
+                "enterpAddress": enterpAddress,
+                "enterpIndustry": enterpIndustry,
+                "enterpIntroduction": enterpIntroduction,
+                "studentPhone": studentPhone,
+                "studentAddress": studentAddress,
+            }
 
-        //     if (!(/\d{12}/.test(studentId))) {
-        //         alert("学号错误");
-        //     } else if (!(/^[\u4e00-\u9fa5]{0,}$/).test(studentName)) {
-        //         alert("姓名错误");
-        //     } else if (!(/^男|女$/.test(studentGender))) {
-        //         alert("性别错误")
-        //     } else if (!(/\d{8}/.test(studentBrith))) {
-        //         alert("出生日期错误");
-        //     } else if (!(/\d{11}/.test(studentPhone))) {
-        //         alert("电话号码错误");
-        //     } else {
-        //         axios.post("http://dontj.top/dbcd/Stu/updateStuAPI", data).
-        //             then((result) => {
-        //                 console.log(result);
-        //                 if (result.data) {
-        //                     alert('修改成功');
-        //                     axios.get("http://dontj.top/dbcd/Stu/StuListAllApi").
-        //                         then(respons => {
-        //                             for (var i = 0; i < respons.data.length; i++) {
-        //                                 this.$set(this.entImfor, i, respons.data[i]);
-        //                             }
-        //                         })
-        //                 } else {
-        //                     alert('修改失败')
-        //                 }
-        //             }).catch((err) => {
-        //                 console.log(err);
-        //             });
-        //     }
+            if (!(/\S/.test(enterpName))) {
+                alert("企业名称不能为空");
+            } else if (!(/\S/.test(enterpAddress))) {
+                alert("企业地址不能为空");
+            } else if (!(/\S/.test(enterpIndustry))) {
+                alert("企业领域不能为空");
+            } else if (!(/\S/.test(enterpIntroduction))) {
+                alert("企业介绍不能为空");
+            } else {
+                axios.post("http://dontj.top/dbcd/Enterp/updateStuAPI", data).
+                    then((result) => {
+                        console.log(result);
+                        if (result.data) {
+                            alert('修改成功');
+                            axios.get("http://dontj.top/dbcd/Enterp/EnterpListAllApi").
+                                then(respons => {
+                                    console.log(respons);
+                                    for (var i = 0; i < respons.data.length; i++) {
+                                        this.$set(this.entImfor, i, respons.data[i]);
+                                        console.log(this.entImfor);
+                                    }
+                                })
+                        } else {
+                            alert('修改失败')
+                        }
+                    }).catch((err) => {
+                        console.log(err);
+                    });
+            }
 
-        // },
-        // close: function () {
-        //     this.flag = false;
-        // }
+        },
+        close: function () {
+            this.flag = false;
+        }
     },
     beforeCreate: function () {
         axios.get("http://dontj.top/dbcd/Enterp/EnterpListAllApi").
             then(respons => {
-                console.log(respons);
                 for (var i = 0; i < respons.data.length; i++) {
                     this.$set(this.entImfor, i, respons.data[i]);
-                    console.log(this.entImfor);
                 }
             })
     }

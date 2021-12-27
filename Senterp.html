@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>recruit</title>
+    <title>Senterp</title>
     <link rel="stylesheet" type="text/css" href="css/stuImfor.css">
     <link rel="stylesheet" type="text/css" href="css/nav.css">
     <link rel="stylesheet" type="text/css" href="css/add.css">
@@ -16,17 +16,17 @@
         <img src="img/toplogo.png" alt="">
         <img src="img/下拉框.png" alt="" class="ddbox" @click="change(1)">
         <div class="option" v-show="flag" @mouseleave="change(0)" @click="esc()">
-          <div class="exit">
-              <span><img src="img/exit.png" alt=""></span>
-              <div class="exitl">退出登陆</div>
-          </div>
+            <div class="exit">
+                <span><img src="img/exit.png" alt=""></span>
+                <div class="exitl">退出登陆</div>
+            </div>
         </div>
     </div>
     <div id="stu">
         <div id="cover">
             <form method="get" action="">
                 <div class="tb">
-                    <div class="td"><input type="text" placeholder="企业ID" required v-model="searchIm"></div>
+                    <div class="td"><input type="text" placeholder="企业名称或企业ID" required v-model="searchIm"></div>
                     <div class="td" id="s-cover">
                         <button @click.prevent="search()">
                             <div id="s-circle"></div>
@@ -41,34 +41,29 @@
                 <tr>
                     <td>企业ID</td>
                     <td>企业名称</td>
-                    <td>招聘ID</td>
-                    <td>截止时间</td>
-                    <td>标题</td>
-                    <td>内容</td>
+                    <td>企业地址</td>
+                    <td>企业领域</td>
+                    <td>企业介绍</td>
                     <td></td>
                     <td></td>
                 </tr>
-                <tr v-for="(item,index) in recImfor">
+                <tr v-for="(item,index) in entImfor">
                     <td>{{item.enterpId}}</td>
                     <td>{{item.enterpName}}</td>
-                    <td>{{item.recruitId}}</td>
-                    <td>{{item.endTime}}</td>
-                    <td>{{item.title}}</td>
-                    <td>{{item.content}}</td>
-                    <td><button @click="del(index)">删除</button></td>
-                    <td><button @click="goUpdate(index)">修改</button></td>
+                    <td>{{item.enterpAddress}}</td>
+                    <td>{{item.enterpIndustry}}</td>
+                    <td>{{item.enterpIntroduction}}</td>
                 </tr>
             </table>
         </div>
-        <div id="add" v-if="flag" style="margin-left: -701px;margin-top: -65px;">
+        <div id="add" v-if="flag" style="margin-left: -701px;margin-top: -111px;">
             <button class="close" @click='close'>x</button>
             <div class="imfo">
-                <input class='id' type="text" v-model='enterpId' placeholder="企业id" disabled="disabled">
-                <input class='id' type="text" v-model='enterpName' placeholder="企业名称" disabled="disabled">
-                <input class='id' type="text" v-model='recruitId' placeholder="招聘id" disabled="disabled">
-                <input type="text" v-model='endTime' placeholder="截止时间">
-                <input type="text" v-model='title' placeholder="标题">
-                <input type="text" v-model='content' placeholder="内容">
+                <input class='id' type="text" v-model='enterpId' placeholder="企业ID" disabled="disabled">
+                <input type="text" v-model='enterpName' placeholder="企业名称">
+                <input type="text" v-model='enterpAddress' placeholder="企业地址">
+                <input type="text" v-model='enterpIndustry' placeholder="企业领域">
+                <input type="text" v-model='enterpIntroduction' placeholder="企业介绍">
                 <button class="sub" @click='update()'>修改</button>
             </div>
         </div>
@@ -81,12 +76,8 @@
             </dl>
             <div class="nav-content">
                 <ul>
-                    <li @click="goImfor()">学生信息</li>
-                    <li class="current">招聘信息</li>
-                    <li @click="goEnterp">企业信息</li>
-                    <li @click="goAdd()">添加学生信息</li>
-                    <li @click='goAddrecruit()'>添加招聘信息</li>
-                    <li @click="goAddenterp">添加企业信息</li>
+                    <li @click="goSRecruit()">招聘信息</li>
+                    <li class="current">企业信息</li>
                 </ul>
             </div>
         </div>
@@ -95,7 +86,8 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="js/nav.js"></script>
-    <script src='js/recruit.js'></script>
+    <script src='js/enterp.js'></script>
+    <script src="js/top.js"></script>
 </body>
 
 </html>
