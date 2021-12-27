@@ -11,12 +11,13 @@ var vm = new Vue({
             window.location.href=("recruit.html"); 
         },
         goAddrecruit:function () {
-            console.log(1);
             window.location.href=("addRec.html"); 
         },
         goAddenterp:function () {
-            console.log(1);
             window.location.href=("addEnterp.html"); 
+        },
+        goEnterp:function () {
+            window.location.href=("enterp.html")
         }
     },
 })
